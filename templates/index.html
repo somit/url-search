@@ -1,0 +1,55 @@
+<!-- <html>
+<head>
+<title> Search URL</title>
+</head>
+<body>
+  <form action = "http://localhost/v0/search/1">
+    <input type=search results=5 name=query placeholder=search>
+    <button> Go </button>
+  </form>    
+</body>
+</html>
+ -->
+ 
+ <!doctype html> 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>JQueryUI AutoComplete Demo</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css" />
+  
+  <script>
+  $(function() {
+    $( "#urls" ).autocomplete({
+      source: function( request, response ) {
+        $.ajax({
+          
+          /* Change this to /services/v0/companies when running on freshersworld */
+          url: "/v0/search/1",
+          dataType: "json",
+          data: {"query": request.term},
+          success: function( data ) {
+            suggestions = []
+            for (var key in data.urls) {
+              suggestions.push(data.urls[key].description);
+            }
+            response(suggestions);
+          }
+        });
+      }
+    });
+  });
+  </script>
+</head>
+<body>
+ 
+<div class="ui-widget">
+  <label for="urls">Search Urls </label>
+  <input id="urls" />
+</div>
+ 
+</body>
+</html>

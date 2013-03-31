@@ -1,0 +1,11 @@
+FW_DATABASE = {
+        'user': 'root', 
+        'password': 'mikku',
+        'host': 'localhost',
+        'database': 'urldb',
+        }
+        
+SOLR_CONFIG = {
+         "url" : 'http://localhost:8983/solr/update/json?commit=true',
+         "time_difference": 14440
+        }

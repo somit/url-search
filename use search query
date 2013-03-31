@@ -1,0 +1,4 @@
+http://localhost:8983/solr/collection1/select?q={!type=dismax%20qf=description%20v='anurag%20api%20search%20and%20google'}&wt=json
+
+
+http://localhost:8983/solr/collection1/select?q={!type=dismax%20qf=description%20v='url%20for%20api%20and%20social'%20bf=created}&wt=json
